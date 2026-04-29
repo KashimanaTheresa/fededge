@@ -2,26 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-#[Fillable([
-    'vehicle_id',
-    'document_type',
-    'file_path',
-    'original_filename',
-    'issue_date',
-    'expiry_date',
-    'status',
-    'admin_feedback',
-    'approved_by',
-    'approved_at',
-])]
 class Document extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'vehicle_id',
+        'document_type',
+        'file_path',
+        'original_filename',
+        'issue_date',
+        'expiry_date',
+        'status',
+        'admin_feedback',
+        'approved_by',
+        'approved_at',
+    ];
 
     // Status constants
     const STATUS_PENDING = 'pending';

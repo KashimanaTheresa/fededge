@@ -59,6 +59,7 @@ class VehicleController extends Controller
             Vehicle::TYPE_BUS => 'Bus',
             Vehicle::TYPE_MOTORCYCLE => 'Motorcycle',
             Vehicle::TYPE_TRAILER => 'Trailer',
+            Vehicle::TYPE_TRICYCLE => 'Tricycle',
         ];
 
         return view('vehicle-owner.vehicles.create', compact('vehicleTypes'));
@@ -116,6 +117,7 @@ class VehicleController extends Controller
             Vehicle::TYPE_BUS => 'Bus',
             Vehicle::TYPE_MOTORCYCLE => 'Motorcycle',
             Vehicle::TYPE_TRAILER => 'Trailer',
+            Vehicle::TYPE_TRICYCLE => 'Tricycle',
         ];
 
         return view('vehicle-owner.vehicles.edit', compact('vehicle', 'vehicleTypes'));

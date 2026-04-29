@@ -2,27 +2,27 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable([
-    'plate_number',
-    'vehicle_type',
-    'brand_model',
-    'year_of_manufacture',
-    'vin',
-    'engine_number',
-    'color',
-    'engine_capacity',
-    'owner_id',
-    'status',
-])]
 class Vehicle extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'plate_number',
+        'vehicle_type',
+        'brand_model',
+        'year_of_manufacture',
+        'vin',
+        'engine_number',
+        'color',
+        'engine_capacity',
+        'owner_id',
+        'status',
+    ];
 
     // Status constants
     const STATUS_ACTIVE = 'active';
@@ -41,6 +41,8 @@ class Vehicle extends Model
     const TYPE_MOTORCYCLE = 'motorcycle';
 
     const TYPE_TRAILER = 'trailer';
+
+    const TYPE_TRICYCLE = 'tricycle';
 
     /**
      * Relationship: Vehicle belongs to User (owner)

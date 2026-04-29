@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/documents', [AdminDashboardController::class, 'documents'])->name('admin.documents.index');
         Route::get('/documents/{document}', [AdminDashboardController::class, 'documentShow'])->name('admin.documents.show');
+        Route::get('/documents/{document}/download', [AdminDashboardController::class, 'documentDownload'])->name('admin.documents.download');
         Route::post('/documents/{document}/approve', [AdminDashboardController::class, 'documentApprove'])->name('admin.documents.approve');
         Route::post('/documents/{document}/reject', [AdminDashboardController::class, 'documentReject'])->name('admin.documents.reject');
     });

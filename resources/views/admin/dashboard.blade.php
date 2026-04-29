@@ -53,8 +53,8 @@
     <div class="col-lg-5">
         <div class="chart-card h-100">
             <div class="card-header"><i class="bi bi-pie-chart-fill"></i> Document Status Overview</div>
-            <div class="card-body pb-2">
-                <div style="max-width:240px;margin:0 auto;">
+            <div class="card-body pb-2" style="flex:1;display:flex;align-items:center;justify-content:center;">
+                <div style="max-width:240px;width:100%;">
                     <canvas id="documentStatusChart"></canvas>
                 </div>
             </div>

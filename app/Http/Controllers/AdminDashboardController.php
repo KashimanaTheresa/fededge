@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Document;
 use App\Models\User;
 use App\Models\Vehicle;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class AdminDashboardController extends Controller
@@ -113,7 +114,7 @@ class AdminDashboardController extends Controller
      */
     public function users(): View
     {
-        $users = User::paginate(15);
+        $users = User::withCount('vehicles')->paginate(15);
 
         return view('admin.users.index', compact('users'));
     }
@@ -162,11 +163,25 @@ class AdminDashboardController extends Controller
      */
     public function documents(): View
     {
+        $status = request('status');
         $documents = Document::with('vehicle', 'vehicle.owner', 'approver')
+            ->when($status, fn ($q) => $q->where('status', $status))
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
         return view('admin.documents.index', compact('documents'));
+    }
+
+    /**
+     * Download document file
+     */
+    public function documentDownload(Document $document)
+    {
+        if (! Storage::exists($document->file_path)) {
+            abort(404, 'File not found.');
+        }
+
+        return Storage::download($document->file_path, $document->original_filename);
     }
 
     /**

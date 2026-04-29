@@ -9,6 +9,7 @@ use App\Policies\VehiclePolicy;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
@@ -46,6 +47,8 @@ class AppServiceProvider extends ServiceProvider
      */
     protected function configureDefaults(): void
     {
+        Paginator::useBootstrapFive();
+
         Date::use(CarbonImmutable::class);
 
         DB::prohibitDestructiveCommands(

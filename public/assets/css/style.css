@@ -1131,6 +1131,8 @@ body {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
 }
 
 /* ==================== WELCOME BANNER ==================== */
@@ -1263,6 +1265,66 @@ body {
 .doc-stat.amber .doc-stat-value { color: var(--amber); }
 .doc-stat.rose  .doc-stat-value { color: var(--rose); }
 .doc-stat.blue  .doc-stat-value { color: var(--blue); }
+
+/* ==================== PAGINATION ==================== */
+.pagination {
+    gap: 0.2rem;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.page-item .page-link {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text-body);
+    border-radius: var(--radius-sm) !important;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+    box-shadow: none;
+}
+
+.page-item .page-link i {
+    font-size: 0.78rem;
+    line-height: 1;
+}
+
+.page-item .page-link:hover {
+    background: var(--red-glass);
+    border-color: var(--red);
+    color: var(--red);
+}
+
+.page-item.active .page-link {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(211,47,47,0.3);
+}
+
+.page-item.disabled .page-link {
+    opacity: 0.38;
+    pointer-events: none;
+    background: var(--card-bg);
+}
+
+.pagination-info {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.pagination-info span {
+    font-weight: 700;
+    color: var(--text-body);
+}
 
 /* ==================== FOOTER ==================== */
 .footer {
